@@ -23,7 +23,7 @@
           {% endif %}
         }
         >
-          <a class="nav-link" href="{% url 'index' %}">Home</a>
+          <a class="nav-link" href="{% url 'index' %}">Strona Główna</a>
         </li>
         <li 
         {
@@ -34,7 +34,7 @@
           {% endif %}
         }
         >
-          <a class="nav-link" href="{% url 'about' %}">About</a>
+          <a class="nav-link" href="{% url 'about' %}">O nas</a>
         </li>
         <li
           {% if 'listings' in request.path %}
@@ -44,7 +44,7 @@
           {% endif %}
         
         >
-          <a class="nav-link" href="{% url 'listings' %}">Featured Listings</a>
+          <a class="nav-link" href="{% url 'listings' %}">Dostępne Nieruchomości</a>
         </li>
       </ul>
 
@@ -62,7 +62,7 @@
         </li>
         <li class="nav-item mr-3">
           <a href="javascript:{document.getElementById('logout').submit()}" class="nav-link">
-            <i class="fas fa-sign-out-alt"></i>Logout
+            <i class="fas fa-sign-out-alt"></i>Wyloguj
           </a>
           <form action="{% url 'logout' %}" method="POST" id="logout">
             {% csrf_token %}
@@ -78,7 +78,7 @@
             {% endif %}
             >
               <a class="nav-link" href="{% url 'register' %}">
-                <i class="fas fa-user-plus"></i> Register</a
+                <i class="fas fa-user-plus"></i> Rejestracja</a
               >
             </li>
             <li 
