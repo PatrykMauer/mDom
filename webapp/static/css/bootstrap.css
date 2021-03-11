@@ -12,14 +12,14 @@
   --red: #e94646;
   --orange: #fd7e14;
   --yellow: #ffc107;
-  --green: #30caa0;
+  --green: #481a43;
   --teal: #20c997;
   --cyan: #17a2b8;
   --white: #fff;
   --gray: #6c757d;
   --gray-dark: #343a40;
   --primary: #34002e;
-  --secondary: #30caa0;
+  --secondary: #481a43;
   --success: #20c997;
   --info: #17a2b8;
   --warning: #ffc107;
@@ -2274,8 +2274,8 @@ fieldset:disabled a.btn {
 .btn-secondary.disabled,
 .btn-secondary:disabled {
   color: #212529;
-  background-color: #30caa0;
-  border-color: #30caa0;
+  background-color: #481a43;
+  border-color: #481a43;
 }
 .btn-secondary:not(:disabled):not(.disabled):active,
 .btn-secondary:not(:disabled):not(.disabled).active,
@@ -2522,15 +2522,15 @@ fieldset:disabled a.btn {
 }
 
 .btn-outline-secondary {
-  color: #30caa0;
+  color: #481a43;
   background-color: transparent;
   background-image: none;
-  border-color: #30caa0;
+  border-color: #481a43;
 }
 .btn-outline-secondary:hover {
   color: #212529;
-  background-color: #30caa0;
-  border-color: #30caa0;
+  background-color: #481a43;
+  border-color: #481a43;
 }
 .btn-outline-secondary:focus,
 .btn-outline-secondary.focus {
@@ -2538,15 +2538,15 @@ fieldset:disabled a.btn {
 }
 .btn-outline-secondary.disabled,
 .btn-outline-secondary:disabled {
-  color: #30caa0;
+  color: #481a43;
   background-color: transparent;
 }
 .btn-outline-secondary:not(:disabled):not(.disabled):active,
 .btn-outline-secondary:not(:disabled):not(.disabled).active,
 .show > .btn-outline-secondary.dropdown-toggle {
   color: #212529;
-  background-color: #30caa0;
-  border-color: #30caa0;
+  background-color: #481a43;
+  border-color: #481a43;
 }
 .btn-outline-secondary:not(:disabled):not(.disabled):active:focus,
 .btn-outline-secondary:not(:disabled):not(.disabled).active:focus,
@@ -4521,7 +4521,7 @@ input[type="button"].btn-block {
 
 .badge-secondary {
   color: #212529;
-  background-color: #30caa0;
+  background-color: #481a43;
 }
 .badge-secondary[href]:hover,
 .badge-secondary[href]:focus {
@@ -5711,7 +5711,7 @@ button.bg-primary:focus {
 }
 
 .bg-secondary {
-  background-color: #30caa0 !important;
+  background-color: #481a43 !important;
 }
 
 a.bg-secondary:hover,
@@ -5840,7 +5840,7 @@ button.bg-dark:focus {
 }
 
 .border-secondary {
-  border-color: #30caa0 !important;
+  border-color: #481a43 !important;
 }
 
 .border-success {
@@ -8314,7 +8314,7 @@ a.text-primary:focus {
 }
 
 .text-secondary {
-  color: #30caa0 !important;
+  color: #481a43 !important;
 }
 
 a.text-secondary:hover,
