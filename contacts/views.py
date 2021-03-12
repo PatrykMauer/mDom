@@ -19,9 +19,9 @@ def contact(request):
         if request.user.is_authenticated:
             user_id = request.user.id
             has_contacted=Contacts.objects.all().filter(listing_id=listing_id, user_id=user_id)
-            if has_contacted:
-                messages.error(request, 'You have already made an inquiry for this listing')
-                return redirect('/listings/'+listing_id)
+           # if has_contacted:
+                #messages.error(request, 'Twoje zapytanie dotyczące tej nieruchomości zostało już wysłane, wkrótce się z Tobą skontaktujemy.')
+               # return redirect('/listings/'+listing_id)
 
         contact=Contacts(listing=listing, listing_id=listing_id, name=name, email=email,phone=phone, message=message, user_id=user_id)
 
@@ -42,7 +42,7 @@ def contact(request):
 
 
 
-        messages.success(request, 'Your request has been submitted, a realtor will get back to you soon')
+        messages.success(request, 'Twoje zapytanie zostało wysłane, wkrótce się z Tobą skontaktujemy')
         return redirect('/listings/'+listing_id)
 
 

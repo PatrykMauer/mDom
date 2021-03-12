@@ -5,8 +5,8 @@
     <div class="container">
       <div class="row text-center">
         <div class="col-md-12">
-          <h1 class="display-4">User Dashboard</h1>
-          <p class="lead">Manage your BT Real Estate account</p>
+          <h1 class="display-4">Lista Zapytań</h1>
+          <!--<p class="lead">Manage your BT Real Estate account</p>-->
         </div>
       </div>
     </div>
@@ -19,9 +19,9 @@
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
             <a href="{% url 'index'%}">
-              <i class="fas fa-home"></i> Home</a>
+              <i class="fas fa-home"></i> Strona Główna</a>
           </li>
-          <li class="breadcrumb-item active"> Dashboard</li>
+          <li class="breadcrumb-item active"> Lista Zapytań</li>
         </ol>
       </nav>
     </div>
@@ -34,14 +34,14 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <h2>Welcoome {{ User.first_name }}</h2>
+          <h2>Lista Zapytań {{ User.first_name }}</h2>
           {% if contacts %}
-            <p>Here are the property listings that you have inquired about</p>
+            <p>Tutaj znajdują się wszystkie nieruchomości, o które zapytałeś naszych opiekunów</p>
             <table class="table">
               <thead>
                 <tr>
                   <th scope="col">#</th>
-                  <th scope="col">Property</th>
+                  <th scope="col">Nieruchomość</th>
                   <th></th>
                 </tr>
               </thead>
@@ -51,14 +51,14 @@
                   <td>{{ contact.id }}</td>
                   <td>{{ contact.listing }}</td>
                   <td>
-                    <a class="btn btn-light" href="{% url 'listing' contact.listing_id %}">View Listing</a>
+                    <a class="btn btn-light" href="{% url 'listing' contact.listing_id %}">Zobacz</a>
                   </td>
                 </tr>  
                 {% endfor %}
               </tbody>
             </table>
             {% else %}
-            <p>You have not made any inquiries </p>
+            <p>Nie złożyłeś jeszcze żadnych zapytań</p>
             {% endif %}
         </div>
       </div>

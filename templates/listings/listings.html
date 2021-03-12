@@ -9,7 +9,7 @@
       <div class="col-md-12">
         <h1 class="display-4">Dostępne Nieruchomości</h1>
         <p class="lead">
-          Masz pytanie? Jesteśmy po to, aby na nie odpowiedzieć!
+          Masz pytania? Skontaktuj się z nami.
         </p>  
       </div>
     </div>
@@ -60,28 +60,28 @@
                 <i class="fas fa-th-large"></i> m²: {{ listing.sqft }}
               </div>
               <div class="col-6">
-                <i class="fas fa-car"></i> Garaż: {{ listing.garage }}
+                <i class="fas fa-sort-amount-up"></i> Piętro: {{ listing.garage }}
               </div>
             </div>
             <div class="row py-2 text-secondary">
               <div class="col-6">
-                <i class="fas fa-bed"></i> Sypialnie: {{ listing.bedrooms }}
+                <i class="fas fa-bed"></i> Liczba pokoi: {{ listing.bedrooms }}
               </div>
               <div class="col-6">
                 <i class="fas fa-bath"></i> Łazienki: {{ listing.bathrooms }}
               </div>
             </div>
-            <hr />
+            <!-- <hr />
             <div class="row py-2 text-secondary">
               <div class="col-12">
                 <i class="fas fa-user"></i> {{ listing.realtor }}
               </div>
             </div>
-            <div class="row text-secondary pb-2">
+           <div class="row text-secondary pb-2">
               <div class="col-6">
                 <i class="fas fa-clock"></i> {{ listing.list_data | timesince }}
               </div>
-            </div>
+            </div> -->
             <hr />
             <a
               href="{% url 'listing' listing.id %}"

@@ -23,7 +23,7 @@
               <div class="col-md-4 mb-3">
                 <label class="sr-only">State</label>
                 <select name="state" class="form-control">
-                  <option selected="true" disabled="disabled">State (All)</option>
+                  <option selected="true" disabled="disabled">Przeznaczenie (Wynajem/Sprzedaż)</option>
                   {% for key,value in state_choices.items %}
                   <option value="{{key}}"
                       {% if key == values.state %} 
@@ -39,7 +39,7 @@
               <div class="col-md-6 mb-3">
                 <label class="sr-only">Bedrooms</label>
                 <select name="bedrooms" class="form-control">
-                  <option selected="true" disabled="disabled">Bedrooms (Any)</option>
+                  <option selected="true" disabled="disabled">Liczba pokoi (Dowolna)</option>
                   {% for key,value in bedroom_choices.items %}
                     <option value="{{key}}"
                     {% if key == values.bedrooms %} 
@@ -51,7 +51,7 @@
               </div>
               <div class="col-md-6 mb-3">
                 <select name="price" class="form-control">
-                  <option selected="true" disabled="disabled">Max Price (All)</option>
+                  <option selected="true" disabled="disabled">Maksymalna Cena (Dowolna)</option>
                   {% for key,value in price_choices.items %}
                   <option value="{{key}}"
                   {% if key == values.price %} 
@@ -62,7 +62,7 @@
                 </select>
               </div>
             </div>
-            <button class="btn btn-secondary btn-block mt-4" type="submit">Submit form</button>
+            <button class="btn btn-secondary btn-block mt-4" type="submit">Szukaj</button>
           </form>
         </div>
       </div>
@@ -76,12 +76,12 @@
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
             <a href="{% url 'index' %}">
-              <i class="fas fa-home"></i> Home</a>
+              <i class="fas fa-home"></i> Strona Główna</a>
           </li>
           <li class="breadcrumb-item">
-            <a href="{% url 'listings' %}">Browse Listings</a>
+            <a href="{% url 'listings' %}">Dostępne Nieruchomości</a>
           </li>
-          <li class="breadcrumb-item active"> Search Results</li>
+          <li class="breadcrumb-item active"> Wynik wyszukiwania</li>
         </ol>
       </nav>
     </div>
@@ -141,7 +141,7 @@
         {% endfor %}
         {% else %}
         <div class="col-md-12">
-        <p>No Listings Available</p>
+        <p>Niestety nie opiekujemy się Nieruchomością o wybranych parametrach.</p>
         </div>
         {% endif %}
 

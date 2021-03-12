@@ -37,16 +37,26 @@
       <div class="col-md-8">
         <h2>Pomożemy znaleźć Ci spełniającą Twoje oczekiwania nieruchomość</h2>
         <p class="lead">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt,
-          pariatur!
+          Nasza działalność obejmuje głownie teren Legnicy i gmin przyległych.
         </p>
         <img src="{% static 'img/about.jpg' %}" alt="" />
         <p class="mt-4">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis
-          esse officia repudiandae ad saepe ex, amet neque quod accusamus rem
-          quia magnam magni dolorum facilis ullam minima perferendis?
-          Exercitationem at quaerat commodi id libero eveniet harum perferendis
-          laborum molestias quia.
+         
+          Współpracujemy z:
+          <ul>
+            <li>notariuszami,</li>
+            <li>radcami prawnymi,</li>
+            <li>rzeczoznawcami majątkowymi,</li>
+            <li>doradcami finansowymi i kredytowymi.</li>
+          </ul>
+         
+          Pomagamy w skompletowaniu dokumentów oraz podpisaniu umów na media, internet i telewizję. 
+
+          <br><br>Jesteśmy po to, aby Ci pomóc. Nasze doradctwo i spotkania są bezpłatne.
+
+          <br><br>Płacisz tylko za rezultat - wtedy kiedy sprzedamy lub wynajmiemy Twoją nieruchomość.
+
+          <br><br>Zapraszamy do współpracy!
         </p>
       </div>
       <div class="col-md-4">
@@ -62,8 +72,9 @@
             <h5 class="card-title">Opiekun Nieruchomości</h5>
             <h6 class="text-secondary">{{realtor.name}}</h6>
             <p class="card-text">
-             {{realtor.description}}
+             {{realtor.description|linebreaks}}
             </p>
+            <p><i class="fas fa-phone"></i> +48 {{realtor.phone}}</p>
           </div>
 
         {% endfor %}
@@ -84,12 +95,12 @@
   </h4>
   <hr />
   <a href="listings" class="btn btn-secondary text-white btn-lg"
-    >Zobacz Nasze Dostępne Nieruchomości</a
+    >Zobacz dostępne nieruchomości</a
   >
 </section>
 
 <!-- Team -->
-<section id="team" class="py-5">
+<!--<section id="team" class="py-5">
   <div class="container">
     <h2 class="text-center">Nasz Zespół</h2>
     <div class="row text-center">
@@ -121,6 +132,6 @@
 
     </div>
   </div>
-</section>
+</section>-->
 
 {% endblock %}

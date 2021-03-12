@@ -1,4 +1,5 @@
 {% load static %}
+
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
   <div class="container">
@@ -58,7 +59,7 @@
         {% endif %}
         >
           <a class="nav-link" href="{% url 'dashboard' %}">
-            Welcome {{ user.username }} (Dashboard)</a>
+            Witaj {{ user.username }} (Lista zapytań)</a>
         </li>
         <li class="nav-item mr-3">
           <a href="javascript:{document.getElementById('logout').submit()}" class="nav-link">

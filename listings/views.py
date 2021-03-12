@@ -49,7 +49,7 @@ def search(request):
     if 'state' in request.GET:
         state = request.GET['state']
         if state:
-            queryset_list=queryset_list.filter(city__iexact = state)
+            queryset_list=queryset_list.filter(state__iexact = state)
     
     
      # Bedrooms
