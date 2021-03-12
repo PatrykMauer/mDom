@@ -8,10 +8,9 @@
   <div class="container">
     <div class="row text-center">
       <div class="col-md-12">
-        <h1 class="display-4">About BT Real Estate</h1>
+        <h1 class="display-4">O Nas</h1>
         <p class="lead">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt,
-          pariatur!
+          Poznajmy się lepiej!
         </p>
       </div>
     </div>
@@ -24,9 +23,9 @@
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="{% url 'index' %}"> <i class="fas fa-home"></i> Home</a>
+          <a href="{% url 'index' %}"> <i class="fas fa-home"></i> Strona Główna</a>
         </li>
-        <li class="breadcrumb-item active">About</li>
+        <li class="breadcrumb-item active">O nas</li>
       </ol>
     </nav>
   </div>
@@ -36,7 +35,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-8">
-        <h2>We Search For The Perfect Home</h2>
+        <h2>Pomożemy znaleźć Ci spełniającą Twoje oczekiwania nieruchomość</h2>
         <p class="lead">
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt,
           pariatur!
@@ -60,7 +59,7 @@
               alt="Seller of the month"
             />
         <div class="card-body">
-            <h5 class="card-title">Seller Of The Month</h5>
+            <h5 class="card-title">Opiekun Nieruchomości</h5>
             <h6 class="text-secondary">{{realtor.name}}</h6>
             <p class="card-text">
              {{realtor.description}}
@@ -79,21 +78,20 @@
 
 <!-- Work -->
 <section id="work" class="bg-dark text-white text-center">
-  <h2 class="display-4">We Work For You</h2>
+  <h2 class="display-4">Pracujemy dla Ciebie</h2>
   <h4>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem velit
-    aperiam, unde aliquid at similique!
+    Jesteśmy do Twojej dyspozycji!
   </h4>
   <hr />
-  <a href="listings.html" class="btn btn-secondary text-white btn-lg"
-    >View Our Featured Listings</a
+  <a href="listings" class="btn btn-secondary text-white btn-lg"
+    >Zobacz Nasze Dostępne Nieruchomości</a
   >
 </section>
 
 <!-- Team -->
 <section id="team" class="py-5">
   <div class="container">
-    <h2 class="text-center">Our Team</h2>
+    <h2 class="text-center">Nasz Zespół</h2>
     <div class="row text-center">
       {% if realtors %}
       {% for realtor in realtors %}
@@ -106,7 +104,7 @@
           />
           <h4>{{realtor.name}}</h4>
           <p class="text-success">
-            <i class="fas fa-award text-success mb-3"></i> Realtor
+            <i class="fas fa-award text-success mb-3"></i> Opiekun Nieruchomości
           </p>
           <hr />
           <p><i class="fas fa-phone"></i>{{realtor.phone}}</p>
@@ -116,7 +114,7 @@
       {% endfor %}
       {% else %}
       <div class="col-md-12">
-        <p>No realtors Available</p>
+        <p>Brak Opiekunów Nieruchomości</p>
       </div>
       {% endif %}
 
