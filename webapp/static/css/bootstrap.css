@@ -4212,6 +4212,12 @@ input[type="button"].btn-block {
   border-radius: calc(0.25rem - 1px);
 }
 
+.custom-cover {
+  width: 100%;
+  height: 15vw;
+  object-fit: cover;
+}
+
 .card-img-top {
   width: 100%;
   border-top-left-radius: calc(0.25rem - 1px);
