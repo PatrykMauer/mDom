@@ -149,8 +149,8 @@ MESSAGE_TAGS={
 }
 
 #Email config
-EMAIL_HOST='smtp.gmail.com'
-EMAIL_PORT=587
-EMAIL_USER=''
-EMAIL_HOST_PASSWORD=''
-EMAIL_USE_TLS=True
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_HOST_USER = 'apikey' # this is exactly the value 'apikey'
+EMAIL_HOST_PASSWORD ='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'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True

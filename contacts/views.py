@@ -29,14 +29,14 @@ def contact(request):
 
         # Send mail
 
-        # send_mail (
-        #         'Property Listing Inquiry',
-        #         'There has been an inquiry for' + listing + '.Sign into the admin panel for more info',
-        #         'jcrocks34@gmail.com',
-        #         [realtor_email,'krishultimate0010@gmail.com','manumanoj0010@gmail.com'],
-        #         fail_silently=False
-
-        # )
+        send_mail (
+                'Zapytanie dotyczące nieruchomości',
+                name + ' zapytał o nieruchomość:' + listing + '. Treść wiadomości:'+ message + 
+                'tel:' + phone,
+                'mdom.zapytanie@gmail.com',
+                [realtor_email],
+                fail_silently=False
+        )
                 
         
 
