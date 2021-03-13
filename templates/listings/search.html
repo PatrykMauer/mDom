@@ -12,12 +12,12 @@
             <div class="form-row">
               <div class="col-md-4 mb-3">
                 <label class="sr-only">Keywords</label>
-                <input type="text" name="keywords" class="form-control" placeholder="Keyword (Pool, Garage, etc)" value="{{ value.keywords}}">
+                <input type="text" name="keywords" class="form-control" placeholder="Słowa klucze (Garaż, Piwnica, itd)" value="{{ value.keywords}}">
               </div>
 
               <div class="col-md-4 mb-3">
                 <label class="sr-only">City</label>
-                <input type="text" name="city" class="form-control" placeholder="City"  value="{{ value.city}}">
+                <input type="text" name="city" class="form-control" placeholder="Miasto"  value="{{ value.city}}">
               </div>
 
               <div class="col-md-4 mb-3">
@@ -101,7 +101,7 @@
               <img class="custom-cover" src="{{listing.photo_main.url}}" alt="" />
               <div class="card-img-overlay">
                 <h2>
-                  <span class="badge badge-secondary text-white">${{ listing.price | intcomma}}</span>
+                  <span class="badge badge-secondary text-white">{{ listing.price | intcomma}} zł</span>
                 </h2>
               </div>
               <div class="card-body">
@@ -114,13 +114,13 @@
                 <hr />
                 <div class="row py-2 text-secondary">
                   <div class="col-6">
-                    <i class="fas fa-th-large"></i> Sqft: {{listing.sqft}}
+                    <i class="fas fa-th-large"></i> m²: {{listing.sqft}}
                   </div>
-                  <div class="col-6"><i class="fas fa-car"></i> Garage: {{listing.garage}}</div>
+                  <div class="col-6"><i class="fas fa-sort-amount-up"></i> Piętro: {{listing.garage}}</div>
                 </div>
                 <div class="row py-2 text-secondary">
-                  <div class="col-6"><i class="fas fa-bed"></i> Bedrooms: {{listing.bedrooms}}</div>
-                  <div class="col-6"><i class="fas fa-bath"></i> Bathrooms: {{listing.bathrooms}}</div>
+                  <div class="col-6"><i class="fas fa-bed"></i> Liczba pokoi: {{listing.bedrooms}}</div>
+                  <div class="col-6"><i class="fas fa-bath"></i> Łazienki: {{listing.bathrooms}}</div>
                 </div>
                 <!-- <hr /> -->
                 <!-- <div class="row py-2 text-secondary">
@@ -131,7 +131,7 @@
                 </div> -->
                 <hr />
                 <a href="{% url 'listing' listing.id %}" class="btn btn-primary btn-block"
-                  >More Info</a
+                  >Więcej infromacji</a
                 >
               </div>
             </div>

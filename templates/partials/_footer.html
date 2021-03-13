@@ -1,29 +1,4 @@
-<!-- Load Facebook SDK for JavaScript -->
-<div id="fb-root"></div>
-<script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      xfbml            : true,
-      version          : 'v10.0'
-    });
-  };
 
-  (function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = 'https://connect.facebook.net/pl_PL/sdk/xfbml.customerchat.js';
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-
-<!-- Your Chat Plugin code -->
-<div class="fb-customerchat"
-  attribution="setup_tool"
-  page_id="103402801582475"
-theme_color="#481a43"
-logged_in_greeting="Dzień dobry, w czym możemy pomóc?"
-logged_out_greeting="Dzień dobry, w czym możemy pomóc?">
-</div>
 
 <footer id="main-footer" class="py-4 bg-primary text-white text-center">
   Copyright &copy;
