@@ -34,8 +34,10 @@ def contact(request):
 
         send_mail (
                 'Zapytanie dotyczące nieruchomości',
-                name + ' zapytał o nieruchomość:' + listing + '. Treść wiadomości:'+ message + 
-                'tel:' + phone + 'Email pytającego to:' + email + '.',
+                name + ' zapytał o nieruchomość nr: '+listing_id +' o nazwie: ' + listing + '.' +
+                '\nTreść wiadomości:'+ message + 
+                '\nTel: ' + phone + 
+                '\nEmail pytającego: ' + email,
                 'mdom.zapytanie@gmail.com',
                 [realtor_email],
                 fail_silently=False
