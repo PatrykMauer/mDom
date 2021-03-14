@@ -8,7 +8,7 @@ from django.contrib import messages
 
 
 # Create your views here.
-def index(request):
+def home(request):
     listings = Listing.objects.order_by('-list_data').filter(is_published=True)[:3]
     
     context ={
@@ -32,3 +32,6 @@ def about(request):
 
 
     return render(request, 'pages/about.html', context)
+
+def rodo(request):
+    return render(request, 'pages/rodo.html')
