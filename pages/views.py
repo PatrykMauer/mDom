@@ -3,7 +3,8 @@ from django.http import HttpResponse
 from listings.models import Listing
 from realtors.models import Realtor 
 from listings.choices import price_choices, bedroom_choices, state_choices
-
+from django.core.mail import send_mail
+from django.contrib import messages
 
 
 # Create your views here.

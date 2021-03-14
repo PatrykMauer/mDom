@@ -37,10 +37,6 @@ def contact(request):
                 [realtor_email],
                 fail_silently=False
         )
-                
-        
-
-
 
         messages.success(request, 'Twoje zapytanie zostało wysłane, wkrótce się z Tobą skontaktujemy')
         return redirect('/listings/'+listing_id)

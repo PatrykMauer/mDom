@@ -1,0 +1,231 @@
+{% extends 'base.html' %}
+
+{% load humanize %}
+
+{% block title %} | {{listing.title}} {% endblock %}
+
+{% block content %}
+
+<section id="showcase-inner" class="py-5 text-white">
+        <div class="container">
+          <div class="row text-center">
+            <div class="col-md-12">
+              <h1 class="display-4">Zgłoś Nieruchomość</h1>
+              <p class="lead">
+                Potrzebujemy dane Twojej nieruchomości
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    
+      <!-- Breadcrumb -->
+      <section id="bc" class="mt-3">
+        <div class="container">
+          <nav>
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                <a href="{% url 'index' %}">Strona Główna</a>
+              </li>
+              <li class="breadcrumb-item">
+                <a href="{% url 'listings' %}">Zgłoś Nieruchomość</a>
+              </li>
+              <li class="breadcrumb-item active">{{listing.title}}</li>
+            </ol>
+          </nav>
+        </div>
+      </section>
+    
+<!-- alerts -->
+{% include 'partials/_alert.html' %}
+<section id="about" class="py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <h2>Zgłoszenie nieruchomości jest naprawdę proste!</h2>
+          <p class="lead">
+            Prześlij nam poniższy formularz i skontaktujemy się z Tobą. Następnie będziemy tylko o krok od opublikowania Twojej nieruchomości na naszej stronie!
+          </p>
+        </div>
+      </div>
+    </div>
+</section>
+
+              <!-- Fields -->
+              <!-- <div class="row mb-5 fields">
+                <div class="col-md-6">
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item text-secondary">
+                      <i class="fas fa-money-bill-alt"></i> Cena:
+                      <span class="float-right">{{listing.price}}zł</span>
+                    </li>
+                    <li class="list-group-item text-secondary">
+                      <i class="fas fa-bed"></i> Liczba pokoi:
+                      <span class="float-right">{{listing.bedrooms}}</span> 
+                    </li>
+                    <li class="list-group-item text-secondary">
+                      <i class="fas fa-bath"></i> Łazienki:
+                      <span class="float-right">{{listing.bathrooms}}</span>
+                    </li> 
+                    <li class="list-group-item text-secondary">
+                      <i class="fas fa-car"></i> Garaż:
+                      <span class="float-right">{{listing.garage}}
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-md-6">
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item text-secondary">
+                      <i class="fas fa-th-large"></i> Powierzchnia (m²):
+                      <span class="float-right">{{listing.sqft}}</span>
+                    </li>
+                    <li class="list-group-item text-secondary">
+                      <i class="fas fa-square"></i> Wielkość działki:
+                      <span class="float-right">{{listing.lot_size}} a
+                      </span>
+                    </li>
+                    <li class="list-group-item text-secondary">
+                      <i class="fas fa-calendar"></i> Data dodania:
+                      <span class="float-right">{{listing.list_date}}</span>
+                    </li>
+                    <li class="list-group-item text-secondary"> 
+                      <i class="fas fa-bed"></i> Opiekun:
+                      <span class="float-right">{{listing.realtor}}
+                      </span>
+                    </li>
+    
+    
+                  </ul>
+                </div>
+              </div> -->
+    
+              <!-- Description -->
+              <!-- <div class="row mb-5">
+                <div class="col-md-12">
+                  {{ listing.description }}
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="card mb-3">
+                <img class="card-img-top" src="{{ listing.realtor.photo.url }}" alt="Seller of the month">
+                <div class="card-body">
+                  <h5 class="card-title">Opiekun Nieruchomości</h5>
+                  <h6 class="text-secondary">{{ listing.realtor }}</h6>
+                </div>
+              </div> -->
+              <button class="btn-primary btn-block btn-lg col-sm-5 mx-auto mb-3" data-toggle="modal" data-target="#inquiryModal">Wypełnij formularz</button>
+            <!-- </div>
+          </div>
+        </div>
+      </section> -->
+    
+      <!-- Publish Form -->
+      <div class="modal fade" id="inquiryModal" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="inquiryModalLabel">Zgłoś Nieruchomość</h5>
+              <button type="button" class="close" data-dismiss="modal">
+                <span>&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form action="{% url 'published' %}" method="POST" >
+                {% csrf_token %}
+                {% if user.is_authenticated %}
+                  <input type="hidden" name="user_id" value="{{ user.id }}">
+                {% else %}
+                  <input type="hidden" name="user_id" value="0">
+                {% endif %} 
+                <div class="form-group">
+                  <label for="property_name" class="col-form-label">Typ Nieruchomości:</label>
+                  <select class="form-control" name="listing">
+                    <option>Mieszkanie</option>
+                    <option>Dom</option>
+                    <option>Działka</option>
+                    <option>Lokal</option>
+                  </select>
+                  <div class="form-group">
+                    <label for="address" class="col-form-label">Adres (wraz z kodem pocztowym):</label>
+                    <input type="text" name="address" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label for="city" class="col-form-label">Miasto:</label>
+                    <input type="text" name="city" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label for="price" class="col-form-label">Cena: (Sprzedaż lub Wynajem)</label>
+                    <input type="text" name="price" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label for="bedrooms" class="col-form-label">Liczba pokoi:</label>
+                    <input type="text" name="bedrooms" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label for="bathrooms" class="col-form-label">Liczba łazienek:</label>
+                    <input type="text" name="bathrooms" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label for="garage" class="col-form-label">Piętro:</label>
+                    <input type="text" name="garage" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label for="sqft" class="col-form-label">Powierzchnia (m²):</label>
+                    <input type="text" name="sqft" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label for="lot_size" class="col-form-label">Działka (a):</label>
+                    <input type="text" name="lot_size" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label for="photo_1" class="col-form-label">Zdjęcie nr 1:</label>
+                    <input type="file" name="photo_1" accept="image/png, image/jpeg">
+                  </div>
+                  <div class="form-group">
+                    <label for="photo_2" class="col-form-label">Zdjęcie nr 2:</label>
+                    <input type="file" name="photo_2" accept="image/png, image/jpeg">
+                  </div><div class="form-group">
+                    <label for="photo_3" class="col-form-label">Zdjęcie nr 3:</label>
+                    <input type="file" name="photo_3" accept="image/png, image/jpeg">
+                  </div><div class="form-group">
+                    <label for="photo_4" class="col-form-label">Zdjęcie nr 4:</label>
+                    <input type="file" name="photo_4" accept="image/png, image/jpeg">
+                  </div><div class="form-group">
+                    <label for="photo_5" class="col-form-label">Zdjęcie nr 5:</label>
+                    <input type="file" name="photo_5" accept="image/png, image/jpeg">
+                  </div>
+                  <div class="form-group">
+                    <label for="photo_6" class="col-form-label">Zdjęcie nr 6:</label>
+                    <input type="file" name="photo_6" accept="image/png, image/jpeg">
+                  </div>
+                </div>
+                <div class="form-group">
+                    <label for="message" class="col-form-label">Dodatkowe Informacje:</label>
+                    <textarea name="message" class="form-control"></textarea>
+                  </div>
+                <div class="form-group">
+                  <label for="name" class="col-form-label">Imię i Nazwisko:</label> 
+                  <input type="text" name="name" class="form-control" {% if user.is_authenticated %} value="{{ user.first_name }} {{user.last_name }}" {% endif %} required>
+                </div>
+                <div class="form-group">
+                  <label for="email" class="col-form-label">Email:</label>
+                  <input type="email" name="email" class="form-control" {% if user.is_authenticated %} value="{{ user.email }}" {% endif %} required>
+                </div>
+                <div class="form-group">
+                  <label for="phone" class="col-form-label">Telefon:</label>
+                  <input type="text" name="phone" class="form-control">
+                </div>
+               
+                <hr>
+                <input type="submit" value="Send" class="btn btn-block btn-secondary">
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+{% include 'partials/_topfooter.html' %}
+    
+{% endblock %}  
