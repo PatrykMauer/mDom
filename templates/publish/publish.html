@@ -12,7 +12,7 @@
             <div class="col-md-12">
               <h1 class="display-4">Zgłoś Nieruchomość</h1>
               <p class="lead">
-                Potrzebujemy dane Twojej nieruchomości
+                Potrzebujemy dane Twojej nieruchomości.
               </p>
             </div>
           </div>
@@ -25,12 +25,9 @@
           <nav>
             <ol class="breadcrumb">
               <li class="breadcrumb-item">
-                <a href="{% url 'index' %}">Strona Główna</a>
+                <a href="{% url 'home' %}"><i class="fas fa-home"></i> Strona Główna</a>
               </li>
-              <li class="breadcrumb-item">
-                <a href="{% url 'listings' %}">Zgłoś Nieruchomość</a>
-              </li>
-              <li class="breadcrumb-item active">{{listing.title}}</li>
+              <li class="breadcrumb-item active">Zgłoś Nieruchomość</li>
             </ol>
           </nav>
         </div>

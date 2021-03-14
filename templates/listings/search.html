@@ -108,7 +108,7 @@
                 <div class="listing-heading text-center">
                   <h4 class="text-primary">{{listing.title}}</h4>
                   <p>
-                    <i class="fas fa-map-marker text-secondary"></i>{{listing.city}}, {{listing.zipcode}}
+                    <i class="fas fa-map-marker text-secondary"></i> {{listing.city}}, {{listing.zipcode}}
                   </p>
                 </div>
                 <hr />
@@ -141,7 +141,7 @@
         {% endfor %}
         {% else %}
         <div class="col-md-12">
-        <p>Niestety nie opiekujemy się Nieruchomością o wybranych parametrach.</p>
+        <p>Niestety obecnie nie opiekujemy się nieruchomością o wybranych parametrach. </p>
         </div>
         {% endif %}
 
@@ -151,5 +151,6 @@
     </div>
   </section>
 
+  {% include 'partials/_topfooter.html' %}
   
   {% endblock %}

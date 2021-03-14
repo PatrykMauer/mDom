@@ -35,7 +35,7 @@ def published(request):
          + city +'\nAdres:' + address + '\nPowierzchnia: ' + sqft + '\nPiętro: '+ garage + '\nIlość pokoi: '+ bathrooms + '\nDziałka: ' + lot_size
         + '\nTel: ' + phone +'\nEmail: ' + user_email + '\nDodatkowa wiadomość: '+ message,
         'mdom.zapytanie@gmail.com',
-        ['patryk.mauer@gmail.com'],)
+        ['mdomkontakt@gmail.com'],)
         
         #if in FILES request
         photo_1 = request.FILES.get('photo_1', 0)
