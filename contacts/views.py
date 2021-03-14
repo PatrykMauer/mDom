@@ -4,6 +4,9 @@ from .models import Contacts
 from django.core.mail import send_mail
 
 def contact(request):
+    if request.method=='GET':
+        return redirect('/listings')
+    
     if request.method=='POST':
         listing_id=request.POST['listing_id']
         listing =request.POST['listing']

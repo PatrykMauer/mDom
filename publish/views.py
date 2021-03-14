@@ -9,6 +9,9 @@ def index(request):
     return render(request, 'publish/publish.html')
 
 def published(request):
+    if request.method=='GET':
+        return render(request, 'publish/publish.html')
+
     if request.method=='POST':
         listing =request.POST['listing']
         address =request.POST['address']
@@ -42,5 +45,5 @@ def published(request):
                 fail_silently=False
         )
 
-        messages.success(request, 'Twoje zapytanie zostało wysłane, wkrótce się z Tobą skontaktujemy')
+        messages.success(request, 'Dziękujemy! Zgłosiłeś do nas swoją nieruchomość, wkrótce się z Tobą skontaktujemy')
         return render(request, 'publish/publish.html')
