@@ -2,6 +2,7 @@ from django.shortcuts import get_object_or_404, render, redirect
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.core.mail import send_mail
 from django.contrib import messages
+from django.core.mail import EmailMessage
 
 # Create your views here.
 
@@ -9,8 +10,8 @@ def index(request):
     return render(request, 'publish/publish.html')
 
 def published(request):
-    if request.method=='GET':
-        return render(request, 'publish/publish.html')
+    # if request.method=='GET':
+    #     return render(request, 'publish/publish.html')
 
     if request.method=='POST':
         listing =request.POST['listing']
@@ -21,29 +22,40 @@ def published(request):
         garage =request.POST['garage']
         sqft =request.POST['sqft']
         lot_size =request.POST['lot_size']
-        photo_1 =request.POST['photo_1']
-        photo_2 =request.POST['photo_2']
-        photo_3 =request.POST['photo_3']
-        photo_4 =request.POST['photo_4']
-        photo_5 =request.POST['photo_5']
-        photo_6 =request.POST['photo_6']
+        # photo_1 =request.FILES['photo_1'].file.getvalue()
+        # photo_2 =request.POST['photo_2']
+        # photo_3 =request.POST['photo_3']
+        # photo_4 =request.POST['photo_4']
+        # photo_5 =request.POST['photo_5']
+        # photo_6 =request.POST['photo_6']
         name = request.POST['name']
         email =request.POST['email']
         phone =request.POST['phone']
         message =request.POST['message']
         user_id =request.POST['user_id']
 
-
+    
         # Send mail
 
-        send_mail (
-                'Publikacja nieruchomosci',
-                name + ' zapytał o nieruchomość:' + listing + '. Treść wiadomości:'+ message + 
-                'tel:' + phone + photo_1 + photo_2 + garage + sqft + bathrooms + price,
-                'mdom.zapytanie@gmail.com',
-                ['patryk.mauer@gmail.com'],
-                fail_silently=False
-        )
+        # send_mail (
+        #         'Publikacja nieruchomosci',
+        #         name + ' zapytał o nieruchomość:' + listing + '. Treść wiadomości:'+ message + 
+        #         'tel:' + phone + photo_2 + garage + sqft + bathrooms + price,
+        #         'mdom.zapytanie@gmail.com',
+        #         ['patryk.mauer@gmail.com'],
+        #         fail_silently=False
+        # )
+        
+        attachment = request.FILES['photo_1']
+
+        email = EmailMessage(
+        'Hello',
+        name + ' zapytał o nieruchomość:' + listing + '. Treść wiadomości:'+ message + 
+        'tel:' + phone + garage + sqft + bathrooms + price,
+        'mdom.zapytanie@gmail.com',
+        ['patryk.mauer@gmail.com'],)
+        email.attach(filename=attachment.name, mimetype=attachment.content_type, content=attachment.read())
+        email.send()
 
         messages.success(request, 'Dziękujemy! Zgłosiłeś do nas swoją nieruchomość, wkrótce się z Tobą skontaktujemy')
         return render(request, 'publish/publish.html')
