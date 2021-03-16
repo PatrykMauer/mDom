@@ -27,7 +27,7 @@ dotenv.load()
 SECRET_KEY = dotenv.get('DATABASE_NAME')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['a0aa5d341f7e.ngrok.io',
 '127.0.0.1']
