@@ -11,19 +11,23 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+import dotenv
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
+#Loading .env vars
+dotenv.load()
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'x0ov4^!p$7^f12o=1ltd+r^$n3tlxy6l8(xyzv#4s8+4k!x!ki'
+SECRET_KEY = dotenv.get('DATABASE_NAME')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['a0aa5d341f7e.ngrok.io',
 '127.0.0.1']
@@ -81,12 +85,13 @@ WSGI_APPLICATION = 'webapp.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'mdom',
-        'USER': 'postgres',
-        'PASSWORD': 'patrykm4',
+        'NAME': dotenv.get('DATABASE_NAME'),
+        'USER': dotenv.get('DATABASE_USER'),
+        'PASSWORD': dotenv.get('DATABASE_PASSWORD'),
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }
@@ -151,6 +156,6 @@ MESSAGE_TAGS={
 #Email config
 EMAIL_HOST = 'smtp.sendgrid.net'
 EMAIL_HOST_USER = 'apikey' # this is exactly the value 'apikey'
-EMAIL_HOST_PASSWORD ='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'
+EMAIL_HOST_PASSWORD = dotenv.get('EMAIL_HOST_PASSWORD')
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
