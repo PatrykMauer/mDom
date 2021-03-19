@@ -88,12 +88,13 @@ WSGI_APPLICATION = 'webapp.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': dotenv.get('DATABASE_NAME'),
         'USER': dotenv.get('DATABASE_USER'),
         'PASSWORD': dotenv.get('DATABASE_PASSWORD'),
-        'HOST': '127.0.0.1',
+        'HOST': 'localhost',
         'PORT': '5432',
+        'OPTIONS' : {'sslmode':'require'}
     }
 }
 
