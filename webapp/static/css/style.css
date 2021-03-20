@@ -38,7 +38,7 @@ img {
   left: 0;
   min-height: 400px;
   width: 100%;
-  background: #34002eea;
+  background: #34002eea !important;
 }
 
 #services {
@@ -54,7 +54,7 @@ img {
   left: 0;
   min-height: 100%;
   width: 100%;
-  background: #481a43;
+  background: #481a43 !important;
 }
 
 #showcase-inner {
@@ -70,7 +70,7 @@ img {
   left: 0;
   min-height: 100%;
   width: 100%;
-  background: #481a43;
+  background: #481a43 !important;
 }
 #showcase-inner.showcase-search {
   min-height: 270px;
