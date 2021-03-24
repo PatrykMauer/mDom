@@ -22,11 +22,11 @@
       </div>
 
       <div class="col-md-4 mb-3">
-        <label class="sr-only">State</label>
-        <select name="state" class="form-control">  
+        <label class="sr-only">Transaction</label>
+        <select name="transaction" class="form-control">  
           <option selected="true" disabled="disabled"
             >Przeznaczenie (Wynajem/Sprzedaż)</option>
-            {% for key,value in state_choices.items %}
+            {% for key,value in transaction_choices.items %}
             <option value="{{ key }}">{{ value }}</option>
             {% endfor %}
           
@@ -37,12 +37,12 @@
     <!-- Form Row 2 -->
     <div class="form-row">
       <div class="col-md-4 mb-3">
-        <label class="sr-only">Bedrooms</label>
-        <select name="bedrooms" class="form-control">
+        <label class="sr-only">Rooms</label>
+        <select name="rooms" class="form-control">
           <option selected="true" disabled="disabled"
             >Liczba pokoi (Dowolna)</option
           >
-          {% for key,value in bedroom_choices.items %}
+          {% for key,value in rooms_choices.items %}
             <option value="{{key}}">{{value}}</option>
             {% endfor %}
         </select>

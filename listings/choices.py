@@ -1,4 +1,4 @@
-bedroom_choices={
+rooms_choices={
 
     '1':1,
     '2':2,
@@ -41,7 +41,7 @@ category_choices={
     'lokal':'Lokal',
 }
 
-state_choices={
+transaction_choices={
     'wynajem':'Wynajem',
     'sprzedaż':'Sprzedaż',
 }

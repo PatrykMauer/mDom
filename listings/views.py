@@ -1,7 +1,7 @@
 from django.shortcuts import get_object_or_404, render
 from .models import Listing
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
-from .choices import price_choices, bedroom_choices, state_choices, category_choices
+from .choices import price_choices, rooms_choices, transaction_choices, category_choices
 
 
 # Create your views here.
@@ -51,18 +51,18 @@ def search(request):
         if city:
             queryset_list=queryset_list.filter(city__iexact = city)
 
-     #State
-    if 'state' in request.GET:
-        state = request.GET['state']
-        if state:
-            queryset_list=queryset_list.filter(state__iexact = state)
+     #Transaction
+    if 'transaction' in request.GET:
+        transaction = request.GET['transaction']
+        if transaction:
+            queryset_list=queryset_list.filter(transaction__iexact = transaction)
     
     
-     # Bedrooms
-    if 'bedrooms' in request.GET:
-        bedrooms = request.GET['bedrooms']
-        if bedrooms:
-            queryset_list=queryset_list.filter(bedrooms__iexact=bedrooms)
+     # Rooms
+    if 'rooms' in request.GET:
+        rooms = request.GET['rooms']
+        if rooms:
+            queryset_list=queryset_list.filter(rooms__lte=rooms)
         
      # Price
     if 'price' in request.GET:
@@ -72,8 +72,8 @@ def search(request):
                 
     context={
         'category_choices':category_choices,
-        'state_choices':state_choices,
-        'bedroom_choices':bedroom_choices,
+        'transaction_choices':transaction_choices,
+        'rooms_choices':rooms_choices,
         'price_choices':price_choices,
         'listings':queryset_list,
         'values':request.GET,

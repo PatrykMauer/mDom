@@ -19,7 +19,7 @@ def published(request):
         city =request.POST['city']
         price =request.POST['price']
         bathrooms =request.POST['bathrooms']
-        garage =request.POST['garage']
+        floor =request.POST['floor']
         sqft =request.POST['sqft']
         lot_size =request.POST['lot_size']
         name = request.POST['name']
@@ -32,7 +32,7 @@ def published(request):
         email = EmailMessage(
         'Zgłoszenie nieruchomości',
         name + ' zgłosił: ' + listing + '\nCena: ' + price + '\nMiasto: '
-         + city +'\nAdres:' + address + '\nPowierzchnia: ' + sqft + '\nPiętro: '+ garage + '\nIlość pokoi: '+ bathrooms + '\nDziałka: ' + lot_size
+         + city +'\nAdres:' + address + '\nPowierzchnia: ' + sqft + '\nPiętro: '+ floor + '\nIlość pokoi: '+ bathrooms + '\nDziałka: ' + lot_size
         + '\nTel: ' + phone +'\nEmail: ' + user_email + '\nDodatkowa wiadomość: '+ message,
         'mdom.zapytanie@gmail.com',
         ['mdomkontakt@gmail.com'],)
