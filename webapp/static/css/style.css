@@ -93,6 +93,37 @@ img {
   position: relative;
 }
 
+.cookie-container {
+  position: fixed;
+  bottom: -100%;
+  left: 0;
+  right: 0;
+  font-size: 14px;
+  background: #34002eea;
+  color: #f5f6fa;
+  box-shadow: 0 -2px 16px rgba(47, 54, 64, 0.39);
+  z-index: 100;
+  transition: 400ms;
+}
+
+.cookie-container.active {
+  bottom: 0;
+}
+
+.cookie-container a {
+  color: #f5f6fa;
+}
+
+.cookie-btn {
+  border: 0;
+  color: #f5f6fa;
+  font-size: 14px;
+  margin-bottom: 10px;
+  margin-left: 6px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
 @media (max-width: 991px) {
   #showcase {
     padding-top: 4rem;
