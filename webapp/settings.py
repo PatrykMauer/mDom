@@ -146,21 +146,27 @@ FORMAT_MODULE_PATH = [
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
+if DEVELOPMENT_MODE is False:
+    AWS_ACCESS_KEY_ID = 'CK7VFS5RZMTEZRTWUNEC'
+    AWS_SECRET_ACCESS_KEY = '/9H0jAgy36zbcDfETOUQI12EbpLjXZSheu1vne42gqE'
+    AWS_STORAGE_BUCKET_NAME = 'mdom'
+    AWS_S3_ENDPOINT_URL = 'https://fra1.digitaloceanspaces.com'
+    AWS_S3_OBJECT_PARAMETERS = {
+        'CacheControl': 'max-age=86400',
+    }
+    AWS_LOCATION = 'files'
 
-AWS_ACCESS_KEY_ID = 'CK7VFS5RZMTEZRTWUNEC'
-AWS_SECRET_ACCESS_KEY = '/9H0jAgy36zbcDfETOUQI12EbpLjXZSheu1vne42gqE'
-AWS_STORAGE_BUCKET_NAME = 'mdom'
-AWS_S3_ENDPOINT_URL = 'https://fra1.digitaloceanspaces.com'
-AWS_S3_OBJECT_PARAMETERS = {
-    'CacheControl': 'max-age=86400',
-}
-AWS_LOCATION = 'files'
-
-STATICFILES_DIRS = [ 
-    os.path.join(BASE_DIR, 'webapp/static'),
-]
-STATIC_URL = 'https://%s/%s/' % (AWS_S3_ENDPOINT_URL, AWS_LOCATION)
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+    STATICFILES_DIRS = [ 
+        os.path.join(BASE_DIR, 'webapp/static'),
+    ]
+    STATIC_URL = 'https://%s/%s/' % (AWS_S3_ENDPOINT_URL, AWS_LOCATION)
+    STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+else:
+    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+    STATIC_URL = '/static/'
+    STATICFILES_DIRS = [
+        os.path.join(BASE_DIR, 'webapp/static')
+    ]
 
 
 # media folder settings

@@ -1,0 +1,73 @@
+<form action="{% url 'search' %}">
+    <!-- Form Row 1 -->
+  <div class="form-row">
+    <div class="col-md-4 mb-3">
+      <label class="sr-only">Category</label>
+      <select name="category" class="form-control">  
+        <option selected="true" disabled="disabled"
+          >Rodzaj Nieruchomości</option>
+          {% for key,value in category_choices.items %}
+          <option value="{{ key }}">{{ value }}</option>
+          {% endfor %}
+      </select>
+    </div>
+      <div class="col-md-4 mb-3">
+        <label class="sr-only">City</label>
+        <input
+          type="text"
+          name="city"
+          class="form-control"
+          placeholder="Miasto"
+        />
+      </div>
+
+      <div class="col-md-4 mb-3">
+        <label class="sr-only">State</label>
+        <select name="state" class="form-control">  
+          <option selected="true" disabled="disabled"
+            >Przeznaczenie (Wynajem/Sprzedaż)</option>
+            {% for key,value in state_choices.items %}
+            <option value="{{ key }}">{{ value }}</option>
+            {% endfor %}
+          
+        </select>
+      </div>
+    </div>
+  </div>
+    <!-- Form Row 2 -->
+    <div class="form-row">
+      <div class="col-md-4 mb-3">
+        <label class="sr-only">Bedrooms</label>
+        <select name="bedrooms" class="form-control">
+          <option selected="true" disabled="disabled"
+            >Liczba pokoi (Dowolna)</option
+          >
+          {% for key,value in bedroom_choices.items %}
+            <option value="{{key}}">{{value}}</option>
+            {% endfor %}
+        </select>
+      </div>
+      <div class="col-md-4 mb-3">
+        <select name="price" class="form-control" id="type">
+          <option selected="true" disabled="disabled"
+            >Maksymalna Cena (Dowolna)</option
+          >
+          {% for key,value in price_choices.items %}
+            <option value="{{key}}">{{value}}</option>
+            {% endfor %}
+        </select>
+      </div>
+        <div class="col-md-4 mb-3">
+          <label class="sr-only">Keywords</label>
+          <input
+            type="text"
+            name="keywords"
+            class="form-control"
+            placeholder="Słowa klucze (Garaż, Piwnica, itd)"
+          />
+        </div>
+    </div>
+    <button class="btn btn-secondary btn-block mt-4" type="submit">
+      Szukaj
+    </button>
+  </form>

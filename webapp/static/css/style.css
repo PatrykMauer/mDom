@@ -47,6 +47,7 @@ img {
   position: relative;
   overflow: hidden;
 }
+
 #services::before {
   content: "";
   position: absolute;
@@ -55,6 +56,14 @@ img {
   min-height: 100%;
   width: 100%;
   background: #481a43 !important;
+}
+
+#showcase-min {
+  background: url(../img/building.jpg) no-repeat top center fixed/cover;
+  position: relative;
+  overflow: hidden;
+  min-height: 200px;
+  background: #34002eea !important;
 }
 
 #showcase-inner {

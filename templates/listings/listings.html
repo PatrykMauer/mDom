@@ -3,8 +3,8 @@
 
 {% block content %}
 
-{% load l10n %}
-{% load i18n %}
+
+
 
 <section id="showcase-inner" class="py-5 text-white">
   <div class="container">
@@ -34,77 +34,16 @@
 </section>
 
 <!-- Listings -->
-<section id="listings" class="py-4">
+{% include 'partials/_listings.html' %}
+
+
+<!-- Paginations-->
+<section>
   <div class="container">
-    <div class="row">
-      {% if listings %} {% for listing in listings %}
-
-      <div class="col-md-6 col-lg-4 mb-4">
-        <div class="card listing-preview">
-          <img class="custom-cover" src="{{ listing.photo_main.url }}" alt="" />
-          <div class="card-img-overlay">
-            <h2>
-              <span class="badge badge-secondary text-white"
-                >{{ listing.price | localize}} zł</span
-              >
-            </h2>
-          </div>
-          <div class="card-body">
-            <div class="listing-heading text-center">
-              <h4 class="text-primary">{{ listing.title }}</h4>
-              <p>
-                <i class="fas fa-map-marker text-secondary"></i>
-                {{ listing.city }} - {{listing.state}}
-              </p>
-            </div>
-            <hr />
-            <div class="row py-2 text-secondary">
-              <div class="col-6">
-                <i class="fas fa-th-large"></i> m²: {{ listing.sqft }}
-              </div>
-              <div class="col-6">
-                <i class="fas fa-sort-amount-up"></i> Piętro: {{ listing.garage }}
-              </div>
-            </div>
-            <div class="row py-2 text-secondary">
-              <div class="col-6">
-                <i class="fas fa-bed"></i> Liczba pokoi: {{ listing.bedrooms }}
-              </div>
-              <div class="col-6">
-                <i class="fas fa-bath"></i> Łazienki: {{ listing.bathrooms }}
-              </div>
-            </div>
-            <!-- <hr />
-            <div class="row py-2 text-secondary">
-              <div class="col-12">
-                <i class="fas fa-user"></i> {{ listing.realtor }}
-              </div>
-            </div>
-           <div class="row text-secondary pb-2">
-              <div class="col-6">
-                <i class="fas fa-clock"></i> {{ listing.list_data | timesince }}
-              </div>
-            </div> -->
-            <hr />
-            <a
-              href="{% url 'listing' listing.id %}"
-              class="btn btn-primary btn-block"
-              >Więcej informacji</a
-            >
-          </div>
-        </div>
-      </div>
-      {% endfor %} {% else %}
-      <div class="col-md-12">
-        <p>Brak nieruchomości o wyszukiwanych parametrach</p>
-      </div>
-      {% endif %}
-    </div>
-
     <div class="row">
       <div class="col-md-12">
         {% if listings.has_other_pages %}
-        <ul class="pagination">
+        <ul class="pagination justify-content-md-center">
           {% if listings.has_previous %}
           <li class="page-item">
             <a

@@ -34,7 +34,15 @@ price_choices={
 
 }
 
+category_choices={
+    'mieszkanie':'Mieszkanie',
+    'dom':'Dom',
+    'działka':'Działka',
+    'lokal':'Lokal',
+}
+
 state_choices={
     'wynajem':'Wynajem',
     'sprzedaż':'Sprzedaż',
 }
+

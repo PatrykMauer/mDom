@@ -4218,24 +4218,21 @@ input[type="button"].btn-block {
   object-fit: cover;
 }
 
-@media (max-width: 768px)
-{
-  .custom-cover{
+@media (max-width: 768px) {
+  .custom-cover {
     width: 100%;
     height: 60vw;
     object-fit: cover;
   }
 }
 
-@media (max-width: 576px)
-{
-  .custom-cover{
+@media (max-width: 576px) {
+  .custom-cover {
     width: 100%;
     height: 100vw;
     object-fit: cover;
   }
 }
-
 
 .card-img-top {
   width: 100%;

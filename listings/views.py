@@ -1,7 +1,7 @@
 from django.shortcuts import get_object_or_404, render
 from .models import Listing
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
-from .choices import price_choices, bedroom_choices, state_choices
+from .choices import price_choices, bedroom_choices, state_choices, category_choices
 
 
 # Create your views here.
@@ -33,6 +33,12 @@ def lisitng(request, listing_id):
 def search(request):
     queryset_list=Listing.objects.order_by('-list_data')
 
+    #category
+    if 'category' in request.GET:
+        category = request.GET['category']
+        if category:
+            queryset_list = queryset_list.filter(category__iexact = category)
+
     #keywords
     if 'keywords' in request.GET:
         keywords = request.GET['keywords']
@@ -56,7 +62,7 @@ def search(request):
     if 'bedrooms' in request.GET:
         bedrooms = request.GET['bedrooms']
         if bedrooms:
-            queryset_list=queryset_list.filter(bedrooms__lte=bedrooms)
+            queryset_list=queryset_list.filter(bedrooms__iexact=bedrooms)
         
      # Price
     if 'price' in request.GET:
@@ -65,6 +71,7 @@ def search(request):
             queryset_list=queryset_list.filter(price__lte=price)
                 
     context={
+        'category_choices':category_choices,
         'state_choices':state_choices,
         'bedroom_choices':bedroom_choices,
         'price_choices':price_choices,
