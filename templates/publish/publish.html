@@ -111,24 +111,23 @@
                   </div>
                   <div class="form-group">
                     <label for="photo_1" class="col-form-label">Zdjęcie nr 1:</label>
-                    <input type="file" name="photo_1" accept="image/png, image/jpeg">
+                    <input id="file1" type="file" name="photo_1" accept="image/png, image/jpeg" >
                   </div>
                   <div class="form-group">
                     <label for="photo_2" class="col-form-label">Zdjęcie nr 2:</label>
-                    <input type="file" name="photo_2" accept="image/png, image/jpeg">
+                    <input id="file2" type="file" name="photo_2" accept="image/png, image/jpeg" >
                   </div><div class="form-group">
                     <label for="photo_3" class="col-form-label">Zdjęcie nr 3:</label>
-                    <input type="file" name="photo_3" accept="image/png, image/jpeg">
+                    <input id="file3" type="file" name="photo_3" accept="image/png, image/jpeg">
                   </div><div class="form-group">
                     <label for="photo_4" class="col-form-label">Zdjęcie nr 4:</label>
-                    <input type="file" name="photo_4" accept="image/png, image/jpeg">
+                    <input id="file4" type="file" name="photo_4" accept="image/png, image/jpeg">
                   </div><div class="form-group">
                     <label for="photo_5" class="col-form-label">Zdjęcie nr 5:</label>
-                    <input type="file" name="photo_5" accept="image/png, image/jpeg">
-                  </div>
-                  <div class="form-group">
+                    <input id="file5" type="file" name="photo_5" accept="image/png, image/jpeg">
+                  </div><div class="form-group">
                     <label for="photo_6" class="col-form-label">Zdjęcie nr 6:</label>
-                    <input type="file" name="photo_6" accept="image/png, image/jpeg">
+                    <input id="file6" type="file" name="photo_6" accept="image/png, image/jpeg">
                   </div>
                 </div>
                 <div class="form-group">
@@ -156,6 +155,56 @@
         </div>
       </div>
     
+      <script>
+      var file1 = document.getElementById("file1");
+
+        file1.onchange = function () {
+          if (this.files[0].size > 307200) {
+            alert("Maksymalny rozmiar zdjęcia to 4MB");
+            this.value = "";
+          }
+        };
+        var file2 = document.getElementById("file2");
+
+        file2.onchange = function () {
+          if (this.files[0].size > 307200) {
+            alert("Maksymalny rozmiar zdjęcia to 4MB");
+            this.value = "";
+          }
+        };
+        var file3 = document.getElementById("file3");
+
+        file3.onchange = function () {
+          if (this.files[0].size > 307200) {
+            alert("Maksymalny rozmiar zdjęcia to 4MB");
+            this.value = "";
+          }
+        };
+        var file1 = document.getElementById("file4");
+
+        file4.onchange = function () {
+          if (this.files[0].size > 307200) {
+            alert("Maksymalny rozmiar zdjęcia to 4MB");
+            this.value = "";
+          }
+        };
+        var file5 = document.getElementById("file5");
+
+        file5.onchange = function () {
+          if (this.files[0].size > 307200) {
+            alert("Maksymalny rozmiar zdjęcia to 4MB");
+            this.value = "";
+          }
+        };
+        var file6 = document.getElementById("file6");
+
+        file6.onchange = function () {
+          if (this.files[0].size > 307200) {
+            alert("Maksymalny rozmiar zdjęcią to 4MB");
+            this.value = "";
+          }
+        };
+        </script>
 {% include 'partials/_topfooter.html' %}
     
 {% endblock %}  
