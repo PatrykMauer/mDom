@@ -124,6 +124,13 @@ img {
   cursor: pointer;
 }
 
+.commission {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30%;
+}
+
 @media (max-width: 991px) {
   #showcase {
     padding-top: 4rem;
