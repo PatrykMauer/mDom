@@ -27,3 +27,5 @@ urlpatterns = [
      path('publish/', include('publish.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
+handler404 = 'webapp.views.handler404'
+# handler500 = 'webapp.views.handler500'
