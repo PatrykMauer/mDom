@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from listings.models import Listing
 from realtors.models import Realtor 
-from listings.choices import price_choices, rooms_choices, transaction_choices, category_choices
+from listings.choices import price_choices, rooms_choices, transaction_choices, category_choices, cities_choices
 from django.core.mail import send_mail
 from django.contrib import messages
 
@@ -12,6 +12,7 @@ def home(request):
     listings = Listing.objects.order_by('-list_data').filter(is_published=True)[:3]
     
     context ={
+        'cities_choices':cities_choices,
         'category_choices':category_choices,
         'listings': listings,
         'transaction_choices':transaction_choices,
