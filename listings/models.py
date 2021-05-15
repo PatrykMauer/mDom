@@ -13,6 +13,7 @@ class Listing(models.Model):
     title = models.CharField(max_length=200)
     address = models.CharField(max_length=200)
     city = models.CharField(max_length=100)
+    voivodeship = models.CharField(max_length=100, choices=[('Dolnośląskie', 'Dolnośląskie'), ('Opolskie', 'Opolskie'), ('Śląskie','Śląskie'),('Wielkopolskie','Wielkopolskie')])
     transaction = models.CharField(max_length=100, choices=[('Wynajem', 'Wynajem'), ('Sprzedaż', 'Sprzedaż')])
     zipcode = models.CharField(max_length=20)
     description = models.TextField(blank=True)
