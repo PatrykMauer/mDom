@@ -1,7 +1,7 @@
 from django.shortcuts import get_object_or_404, render
 from .models import Listing
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
-from .choices import price_choices, rooms_choices, transaction_choices, category_choices
+from .choices import price_choices, rooms_choices, transaction_choices, category_choices, cities_choices
 
 
 # Create your views here.
@@ -62,7 +62,7 @@ def search(request):
     if 'rooms' in request.GET:
         rooms = request.GET['rooms']
         if rooms:
-            queryset_list=queryset_list.filter(rooms__lte=rooms)
+            queryset_list=queryset_list.filter(rooms__iexact=rooms)
         
      # Price
     if 'price' in request.GET:
@@ -71,6 +71,7 @@ def search(request):
             queryset_list=queryset_list.filter(price__lte=price)
                 
     context={
+        'cities_choices':cities_choices,
         'category_choices':category_choices,
         'transaction_choices':transaction_choices,
         'rooms_choices':rooms_choices,

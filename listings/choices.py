@@ -1,3 +1,26 @@
+from .models import Listing
+listings = Listing.objects.order_by('-list_data').filter(is_published=True)
+cities = []
+cities_full=[]
+for listing in listings:
+    if listing.city not in cities:
+        cities.append(listing.city)
+        cities_full.append((listing.voivodeship, listing.city))
+
+
+cities_full = sorted(cities_full)
+# print (cities_full)
+cities =[]
+for city in cities_full:
+    cities.append(city[1])
+
+place=[]
+for city in cities_full:
+    name=', '.join(city)
+    place.append(name)
+
+cities_choices=dict(zip(cities, place))
+
 rooms_choices={
 
     '1':1,
@@ -45,4 +68,5 @@ transaction_choices={
     'wynajem':'Wynajem',
     'sprzedaż':'Sprzedaż',
 }
+
 

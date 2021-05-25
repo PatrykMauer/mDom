@@ -7,7 +7,7 @@
         {% if listings %} {% for listing in listings %}
         <div class="col-md-6 col-lg-4 mb-4">
           <div class="card listing-preview">
-            <img class="custom-cover" src="{{ listing.photo_main.url }}" alt="" />
+            <img class="custom-cover" src="{{ listing.photo_main.url }}" alt="Mieszkania na sprzedaż i wynajem Legnica, Opole" />
             {% if listing.commission == False %}
               <img class="commission" src="{% static 'img/no_commision.png' %}"/>
             {% endif %}
