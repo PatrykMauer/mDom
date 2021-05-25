@@ -20,7 +20,6 @@ for city in cities_full:
     place.append(name)
 
 cities_choices=dict(zip(cities, place))
-print(cities_choices)
 
 rooms_choices={
 
