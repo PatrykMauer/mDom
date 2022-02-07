@@ -9,7 +9,7 @@
           <div class="card listing-preview">
             <img class="custom-cover" src="{{ listing.photo_main.url }}" alt="Mieszkania na sprzedaż i wynajem Legnica, Opole" />
             {% if listing.commission == False %}
-              <img class="commission" src="{% static 'img/no_commision.png' %}"/>
+              <img class="commission" alt="bez prowizji" src="{% static 'img/no_commision.png' %}"/>
             {% endif %}
             <div class="card-img-overlay">
               <h2>
