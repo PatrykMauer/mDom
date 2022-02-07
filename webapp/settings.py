@@ -59,7 +59,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'redirect_to_non_www.middleware.RedirectToNonWww',
 ]
 
 ROOT_URLCONF = 'webapp.urls'
